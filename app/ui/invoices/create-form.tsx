@@ -2,6 +2,7 @@
 import { useFormState } from 'react-dom';
 import { CustomerField } from '@/app/lib/definitions';
 import Link from 'next/link';
+import clsx from 'clsx';
 import {
   CheckIcon,
   ClockIcon,
@@ -133,13 +134,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
               </p>
             ))}
         </fieldset>
-        {state?.errors &&
-          state?.errors.map((error: string) => (
-            <p className="mt-2 text-sm text-red-500" key={error}>
-              {error}
-            </p>
-          ))}
-        {console.log(state?.errors)}
+        <p className="mt-2 text-sm text-red-500">{state?.message}</p>
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link
