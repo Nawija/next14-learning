@@ -26,6 +26,7 @@ export type State = {
     status?: string[];
   };
   message?: string | null;
+  success?: boolean;
 };
 
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
@@ -44,7 +45,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
       message: 'Missing Fields. Failed to Create Invoice.',
     };
   }
-
+  succes: true;
   // Prepare data for insertion into the database
   const { customerId, amount, status } = validatedFields.data;
   const amountInCents = amount * 100;
