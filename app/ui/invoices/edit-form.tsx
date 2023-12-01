@@ -147,8 +147,7 @@ export default function EditInvoiceForm({
           Cancel
         </Link>
         <Button type="submit">
-          {console.log(state?.success)}
-          {state?.success ? 'XX' : 'Edit Invoice'}
+          Edit Invoice
         </Button>
       </div>
     </form>
