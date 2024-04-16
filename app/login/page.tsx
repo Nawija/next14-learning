@@ -3,13 +3,16 @@ import LoginForm from '@/app/ui/login-form';
 
 export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-        <div className="flex h-20 w-full items-end rounded-lg bg-color-500 p-3 md:h-36">
-          <div className="w-32 text-white md:w-36">
+    <main className="flex flex-col md:flex-row items-center justify-center md:justify-start h-screen">
+      <div className="relative flex w-full mb-6 md:mb-0 max-w-[300px] flex-col">
+        <div className="flex h-20 w-full items-end rounded-r-xl bg-color-500 p-3 md:h-screen">
+          <div className="w-44 text-white md:w-44">
             <AcmeLogo />
           </div>
         </div>
+      </div>
+      <div className='mx-auto'>
+       
         <LoginForm />
       </div>
     </main>

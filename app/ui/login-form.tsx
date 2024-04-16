@@ -14,9 +14,9 @@ export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
     <form action={dispatch} className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>Zaloguj się</h1>
-        <p>do Panelu administracyjnego sklepu</p>
+      <div className="flex-1 rounded-lg bg-gray-100 shadow-xl border px-6 pb-4 pt-8">
+        <h1 className={`${lusitana.className} text-2xl`}>Zaloguj się</h1>
+        <p className='mb-3 text-sm'>do Panelu administracyjnego sklepu</p>
         <div className="w-full">
           <div>
             <label
@@ -27,11 +27,11 @@ export default function LoginForm() {
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-none placeholder:text-gray-500"
                 id="email"
                 type="email"
                 name="email"
-                placeholder="Enter your email address"
+                placeholder="Wpisz adress email"
                 required
               />
               <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
@@ -46,11 +46,11 @@ export default function LoginForm() {
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 outline-red-600 placeholder:text-gray-500"
                 id="password"
                 type="password"
                 name="password"
-                placeholder="Enter password"
+                placeholder="Wpisz hasło"
                 required
                 minLength={6}
               />
@@ -67,8 +67,8 @@ export default function LoginForm() {
           >
             {errorMessage && (
               <>
-                <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-                <p className="text-sm text-red-500">{errorMessage}</p>
+                <ExclamationCircleIcon className="h-5 w-5 text-red-600" />
+                <p className="text-sm text-red-600">{errorMessage}</p>
               </>
             )}
           </div>

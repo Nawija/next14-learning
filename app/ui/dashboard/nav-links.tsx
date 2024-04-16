@@ -24,7 +24,7 @@ const links = [
   },
   {
     name: 'Produkty',
-    href: '/dashboard/invoices',
+    href: '/dashboard/produkty',
     icon: IoMdPricetags,
   },
   { name: 'Klienci', href: '/dashboard/customers', icon: FaUsers },
@@ -41,9 +41,9 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium transition-colors hover:bg-color-400/20 hover:text-color-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium transition-colors hover:bg-color-400/10 hover:text-color-600 md:flex-none md:justify-start md:p-2 md:px-3',
               {
-                'bg-color-400/30 text-color-600': pathname === link.href,
+                'text-color-600 bg-color-400/20': pathname === link.href,
               },
             )}
           >
