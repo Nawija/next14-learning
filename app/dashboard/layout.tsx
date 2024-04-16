@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
       <div className="w-full flex-none md:w-64">
         <NextTopLoader
-          color="#36a5e6"
+          color="#0ad860"
           initialPosition={0.08}
           crawlSpeed={200}
           height={2.7}
@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           showSpinner={false}
           easing="ease"
           speed={200}
-          shadow="0 0 25px #3caff1,0 0 15px #2299DD"
+          shadow="0 0 25px #3cf154,0 0 15px #22dd8f"
           zIndex={1600}
           showAtBottom={false}
         />
