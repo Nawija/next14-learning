@@ -7,7 +7,7 @@ export default function AcmeLogo() {
       className={`${lusitana.className} flex flex-row items-center leading-none text-white`}
     >
       <AiOutlineGitlab className="h-12 w-12 rotate-[15deg]" />
-      <p className="text-[40px]">Perlon</p>
+      <p className="text-[40px]">Logo</p>
     </div>
   );
 }
