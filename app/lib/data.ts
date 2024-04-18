@@ -167,6 +167,25 @@ export async function fetchInvoiceById(id: string) {
   }
 }
 
+export async function fetchProducts() {
+  noStore();
+  try {
+    const data = await sql<CustomerField>`
+      SELECT
+        id,
+        name
+      FROM products
+      ORDER BY name ASC
+    `;
+
+    const products = data.rows;
+    return products;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all products.');
+  }
+}
+
 export async function fetchCustomers() {
   noStore();
   try {
