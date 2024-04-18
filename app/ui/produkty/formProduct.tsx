@@ -25,24 +25,16 @@ export default function Form({ produkty }: { produkty: ProduktField[] }) {
             Choose customer
           </label>
           <div className="relative">
-            <select
-              id="customer"
-              name="customerId"
-              className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              defaultValue=""
-              aria-describedby="customer-error"
-            >
-              <option value="" disabled>
-                Select a customer
-              </option>
-              {produkty.map((produkt) => (
-                <option key={produkt.id} value={produkt.id}>
-                  {produkt.name}
-                </option>
-              ))}
-            </select>
-            <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
-          </div>
+              <input
+                id="amount"
+                name="amount"
+                type="text"
+                placeholder="Nazwa produktu"
+                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                aria-describedby="amount-error"
+              />
+              <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+            </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
             {state.errors?.productId &&
               state.errors.productId.map((error: string) => (
@@ -65,7 +57,7 @@ export default function Form({ produkty }: { produkty: ProduktField[] }) {
                 name="amount"
                 type="number"
                 step="0.01"
-                placeholder="Enter USD amount"
+                placeholder="Cena"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="amount-error"
               />
@@ -82,16 +74,6 @@ export default function Form({ produkty }: { produkty: ProduktField[] }) {
           </div>
         </div>
 
-        {/* Invoice Status */}
-        <fieldset>
-          <legend className="mb-2 block text-sm font-medium">
-            Set the procukt status
-          </legend>
-          <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
-            
-          </div>
-         
-        </fieldset>
         <p className="mt-2 text-sm text-red-500">{state?.message}</p>
       </div>
       <div className="mt-6 flex justify-end gap-4">

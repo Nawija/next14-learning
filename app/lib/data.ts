@@ -175,7 +175,6 @@ export async function fetchProducts() {
         id,
         name
       FROM products
-      ORDER BY name ASC
     `;
 
     const products = data.rows;

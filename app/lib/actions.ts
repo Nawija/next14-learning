@@ -41,7 +41,7 @@ const FormSchemaProduct = z.object({
   price: z.coerce
     .number()
     .gt(0, { message: 'Please enter an amount greater than $0.' }),
-  desc: z.string({
+  description: z.string({
     invalid_type_error: 'Please write a description.',
   }),
   date: z.string(),
@@ -110,13 +110,13 @@ export async function createProduct(prevState: StateProduct, formData: FormData)
   }
   succes: true;
   // Prepare data for insertion into the database
-  const { productId, price, desc } = validatedFields.data;
+  const { productId, price, description } = validatedFields.data;
   const date = new Date().toISOString().split('T')[0];
   // Insert data into the database
   try {
     await sql`
-      INSERT INTO invoices (customer_id, amount, status, date)
-      VALUES (${productId}, ${price}, ${desc}, ${date})
+      INSERT INTO invoices (customer_id, price, description, date)
+      VALUES (${productId}, ${price}, ${description}, ${date})
     `;
   } catch (error) {
     // If a database error occurs, return a more specific error.
