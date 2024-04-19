@@ -123,7 +123,7 @@ export async function createProduct(prevState: StateProduct, formData: FormData)
   // Insert data into the database
   try {
     await sql`
-      INSERT INTO products (nameProduct, priceProduct, description, date)
+      INSERT INTO products (nameproduct, priceproduct, description, date)
       VALUES (${nameProduct}, ${priceProduct}, ${description}, ${date})
     `;
   } catch (error) {
