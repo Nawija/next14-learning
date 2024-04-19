@@ -75,7 +75,11 @@ export type FormattedCustomersTable = {
 
 export type ProduktField = {
   id: string;
+  nameproduct: string;
+  priceproduct: number;
+  description: string;
   name: string;
+  date: string;
 };
 export type CustomerField = {
   id: string;
