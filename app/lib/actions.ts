@@ -35,12 +35,12 @@ const CreateInvoice = FormSchema.omit({ id: true, date: true });
 
 const FormSchemaProduct = z.object({
   id: z.string(),
-  productId: z.string({
+  nameProduct: z.string({
     invalid_type_error: 'Please select a customer.',
   }),
-  price: z.coerce
+  priceProduct: z.coerce
     .number()
-    .gt(0, { message: 'Please enter an amount greater than $0.' }),
+    .gt(0, { message: 'Please enter an amount greater than $1.' }),
   description: z.string({
     invalid_type_error: 'Please write a description.',
   }),
@@ -49,8 +49,8 @@ const FormSchemaProduct = z.object({
 
 export type StateProduct = {
   errors?: {
-    productId?: string[];
-    price?: string[];
+    nameProduct?: string[];
+    priceProduct?: string[];
     desc?: string[];
   };
   message?: string | null;
@@ -93,13 +93,21 @@ export async function createInvoice(prevState: State, formData: FormData) {
   redirect('/dashboard/invoices');
 }
 
+
+
+
+
 const CreateProduct = FormSchemaProduct.omit({ id: true, date: true });
+
+
+
+
 export async function createProduct(prevState: StateProduct, formData: FormData) {
   // Validate form using Zod
   const validatedFields = CreateProduct.safeParse({
-    productId: formData.get('productId'),
-    price: formData.get('price'),
-    desc: formData.get('desc'),
+    name: formData.get('nameProduct'),
+    price: formData.get('priceProduct'),
+    description: formData.get('description'),
   });
   
   if (!validatedFields.success) {
@@ -110,13 +118,13 @@ export async function createProduct(prevState: StateProduct, formData: FormData)
   }
   succes: true;
   // Prepare data for insertion into the database
-  const { productId, price, description } = validatedFields.data;
+  const { nameProduct, priceProduct, description } = validatedFields.data;
   const date = new Date().toISOString().split('T')[0];
   // Insert data into the database
   try {
     await sql`
-      INSERT INTO invoices (customer_id, price, description, date)
-      VALUES (${productId}, ${price}, ${description}, ${date})
+      INSERT INTO products (nameProduct, priceProduct, description, date)
+      VALUES (${nameProduct}, ${priceProduct}, ${description}, ${date})
     `;
   } catch (error) {
     // If a database error occurs, return a more specific error.

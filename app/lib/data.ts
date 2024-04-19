@@ -173,7 +173,7 @@ export async function fetchProducts() {
     const data = await sql<CustomerField>`
       SELECT
         id,
-        name
+        nameProduct
       FROM products
     `;
 
