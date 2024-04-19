@@ -80,7 +80,7 @@ export default function Form({ produkty }: { produkty: CustomerField[] }) {
         >
           Anuluj
         </Link>
-        <Button type="submit">Create Produkt</Button>
+        <Button type="submit">Dodaj produkt</Button>
       </div>
     </form>
   );
