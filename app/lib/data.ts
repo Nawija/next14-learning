@@ -7,6 +7,7 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  ProduktField,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -170,10 +171,10 @@ export async function fetchInvoiceById(id: string) {
 export async function fetchProducts() {
   noStore();
   try {
-    const data = await sql<CustomerField>`
+    const data = await sql<ProduktField>`
       SELECT
         id,
-        nameProduct
+        nameproduct
       FROM products
     `;
 

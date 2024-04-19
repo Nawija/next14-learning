@@ -1,7 +1,7 @@
 'use client';
 
 import { useFormState } from 'react-dom';
-import { CustomerField } from '@/app/lib/definitions';
+import { ProduktField } from '@/app/lib/definitions';
 import Link from 'next/link';
 import {
   CurrencyDollarIcon,
@@ -10,7 +10,7 @@ import {
 import { Button } from '@/app/ui/button';
 import { createProduct } from '@/app/lib/actions';
 
-export default function Form({ produkty }: { produkty: CustomerField[] }) {
+export default function FormProduct({ products }: { products: ProduktField[] }) {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createProduct, initialState);
 

@@ -1,9 +1,9 @@
-import Form from '@/app/ui/produkty/formProduct';
+import FormProduct from '@/app/ui/produkty/formProduct';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchProducts } from '@/app/lib/data';
  
 export default async function Page() {
-  const produkty = await fetchProducts();
+  const products = await fetchProducts();
  
   return (
     <main>
@@ -17,7 +17,7 @@ export default async function Page() {
           },
         ]}
       />
-      <Form produkty={produkty} />
+      <FormProduct products={products} />
     </main>
   );
 }
