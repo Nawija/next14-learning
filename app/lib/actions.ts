@@ -47,15 +47,7 @@ const FormSchemaProduct = z.object({
   date: z.string(),
 });
 
-export type StateProduct = {
-  errors?: {
-    nameProduct?: string[];
-    priceProduct?: string[];
-    desc?: string[];
-  };
-  message?: string | null;
-  success?: boolean;
-};
+
 
 export async function createInvoice(prevState: State, formData: FormData) {
   // Validate form using Zod
@@ -95,7 +87,15 @@ export async function createInvoice(prevState: State, formData: FormData) {
 
 
 
-
+export type StateProduct = {
+  errors?: {
+    nameProduct?: string[];
+    priceProduct?: string[];
+    desc?: string[];
+  };
+  message?: string | null;
+  success?: boolean;
+};
 
 const CreateProduct = FormSchemaProduct.omit({ id: true, date: true });
 
